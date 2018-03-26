@@ -47,6 +47,15 @@
 				<role>maintainer</role>
 			</roles>
 		</developer>
+		<developer>
+			<id>schlda00</id>
+			<name>Kai Schleicher</name>
+			<roles>
+				<role>founder</role>
+				<role>developer</role>
+				<role>support</role>
+			</roles>
+		</developer>
 	</developers>
 	<contributors>
 		<contributor>
