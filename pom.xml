@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+		http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>17.1.1</version>
+		<relativePath />
+	</parent>
+
+	<groupId>ch.unibas.biozentrum.imcf</groupId>
+	<artifactId>NoiSee</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+
+	<name>NoiSee</name>
+	<description>An easy-to-use ImageJ macro for measuring SNR.</description>
+	<url>http://www.biozentrum.unibas.ch/noisee</url>
+	<inceptionYear>2018</inceptionYear>
+	<organization>
+		<name>University of Basel</name>
+		<url>http://www.unibas.ch/</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>GNU General Public License (GPL) v3</name>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<!-- See https://imagej.net/Team -->
+		<developer>
+			<id>ehrenfeu</id>
+			<name>Niko Ehrenfeuchter</name>
+			<url>http://imagej.net/User:Ehrenfeu</url>
+			<roles>
+				<role>founder</role>
+				<role>lead</role>
+				<role>developer</role>
+				<role>debugger</role>
+				<role>reviewer</role>
+				<role>support</role>
+				<role>maintainer</role>
+			</roles>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<name>N/A</name>
+		</contributor>
+	</contributors>
+
+	<mailingLists>
+		<mailingList>
+			<name>ImageJ Forum</name>
+			<archive>http://forum.imagej.net/</archive>
+		</mailingList>
+	</mailingLists>
+
+	<scm>
+		<connection>scm:git:git://github.com/imcf/noisee</connection>
+		<developerConnection>scm:git:git@github.com:imcf/noisee</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/imcf/noisee</url>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/imcf/example-script-collection/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>None</system>
+	</ciManagement>
+
+	<properties>
+		<package-name>ch.unibas.biozentrum.imcf.noisee</package-name>
+		<main-class>ch.unibas.biozentrum.imcf.noisee</main-class>
+		<license.licenseName>gpl_3</license.licenseName>
+		<license.copyrightOwners>University of Basel, Switzerland</license.copyrightOwners>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>imagej.public</id>
+			<url>http://maven.imagej.net/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej</artifactId>
+		</dependency>
+	</dependencies>
+</project>
