@@ -1,4 +1,7 @@
 target/
 
+# auto-generated from scijava-scripts:
+pom.xml.releaseBackup
+
 # stuff to ignore explicitly by name, mostly for porting old code
 *.orig-gitignore.*
