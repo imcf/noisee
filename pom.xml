@@ -78,7 +78,7 @@
 	<properties>
 		<package-name>ch.unibas.biozentrum.imcf.noisee</package-name>
 		<main-class>ch.unibas.biozentrum.imcf.noisee</main-class>
-		<license.licenseName>gpl_3</license.licenseName>
+		<license.licenseName>gpl_v3</license.licenseName>
 		<license.copyrightOwners>University of Basel, Switzerland</license.copyrightOwners>
 	</properties>
 
