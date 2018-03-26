@@ -763,7 +763,7 @@ function process_beads() {
     ////////// create plots from bleaching measurements ////////// ////////// ////////// //////////
     // linear decay = z-drift, exponential decay = bleaching
     col_mean = "Mean(bead_intensity_vs_time)";
-    plot_mean = plotResult("Z-drift or bleaching?", "Frame", "bead intensity mean", col_mean);
+    plot_mean = plotResult("Mean bead intensity over time", "Frame", "bead intensity mean", col_mean);
     addTextToImage(plot_mean, false, "Center", 22,
         "A linear decay would be an indicator for a z-drift, an exponential decay for bleaching.");
     addTextToImage(plot_mean, false, "Center", 96, "");
@@ -772,7 +772,7 @@ function process_beads() {
     // this reveals only drift that is relvant for the regions that measure bleaching or z-drift.
     // could in general be used to reveal xy-drift as it also interferes with SNR
     col_std = "StdDev(bead_intensity_vs_time)";
-    plot_std = plotResult("Stable Z-drift / bleaching measurement?", "Frame",
+    plot_std = plotResult("Standard deviation of bead intensity over time", "Frame",
         "bead intensity StdDev", col_std);
     addTextToImage(plot_std, false, "Center", 22,
         "Increase in the StdDev indicates a drift in X/Y.");
