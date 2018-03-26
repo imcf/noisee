@@ -1,4 +1,4 @@
-// @Boolean(label="NoiSee - run Fluorescein SNR analysis",value="true") run_macro
+// @String(label="NoiSee - Fluorescein SNR analysis", choices={"Note: all currently open images will be closed!"}, style="listBox", description="Hit 'Cancel' otherwise!") warn_msg
 // @File(label="Dark image",description="dark field image") darkimage
 // @File(label="Fluorescein image",description="fluorescein image") fluoimage
 // @Boolean(label="Save results as PDF",description="generate a PDF with images and plots",value="true") save_pdf
@@ -17,11 +17,6 @@
 /// Naming conventions
 //  - "img_"  - image IDs of 2D images
 //  - "rgb_"  - image IDs of 2D RGB images
-
-
-if (run_macro == false)
-    exit("Please select the 'run analysis' option to execute the macro!");
-
 
 
 ////////////////// function definitions ///////////////////////////////

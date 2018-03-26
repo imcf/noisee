@@ -1,4 +1,4 @@
-// @Boolean(label="NoiSee - run SNR bead analysis",description="all open images will be closed",value="true") run_macro
+// @String(label="NoiSee - Beads SNR analysis", choices={"Note: all currently open images will be closed!"}, style="listBox", description="Hit 'Cancel' otherwise!") warn_msg
 // @File(label="Beads time-series image",description="2D time-lapse acquisition of fluorescent beads") beadsimage
 // @Integer(label="Beads diameter (in pixels)",description="approximate bead diameter (in pixels)",value=15) beads_diameter
 // @Integer(label="Find Maxima noise tolerance",description="typical values: [PMT=50] [HyD (photon counting)=10] [Camera=500]",value=50) beads_noisetolerance
@@ -24,11 +24,6 @@
 //  - "img_"  - image IDs of 2D images
 //  - "rgb_"  - image IDs of 2D RGB images
 //  - "roi_"  - index number of a ROI manager entry
-
-
-if (run_macro == false)
-    exit("Please select the 'run analysis' option to execute the macro!");
-
 
 
 ////////////////// function definitions ///////////////////////////////
