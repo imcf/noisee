@@ -1,1 +1,4 @@
 target/
+
+# stuff to ignore explicitly by name, mostly for porting old code
+*.orig-gitignore.*
