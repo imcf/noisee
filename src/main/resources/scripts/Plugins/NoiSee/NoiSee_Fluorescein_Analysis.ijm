@@ -5,7 +5,7 @@
 // @Integer(label="Log level",description="higher number means more messages",min=0,max=2,style="scroll bar") LOGLEVEL
 
 
-//////////// NoiSee ///////////////////////////////////////////////////////
+//////////// NoiSee Fluorescein Analysis ///////////////////////////////////////////////////////
 // SNR evaluation macro, written by Kai Schleicher, Niko Ehrenfeuchter, IMCF Basel
 // licence: GPLv3
 

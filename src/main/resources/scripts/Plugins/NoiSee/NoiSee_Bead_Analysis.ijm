@@ -10,7 +10,7 @@
 // @Boolean(label="Save log messages",description="save contents of the 'Log' window in a text file",value="false") save_log
 
 
-//////////// NoiSee ///////////////////////////////////////////////////////
+//////////// NoiSee Beads Analysis ///////////////////////////////////////////////////////
 // SNR evaluation macro, written by Kai Schleicher, Niko Ehrenfeuchter, IMCF Basel
 // licence: GPLv3
 
@@ -831,7 +831,7 @@ function process_beads() {
 
 
 
-    ////////// save the log and arrange the windows on the screen ////////// ////////// //////////
+    ////////// save the log, create PDF and arrange the windows on the screen ////////// //////////
     if (save_log) {
         selectWindow("Log");
         saveAs("Text", respath + "/Log.txt");
