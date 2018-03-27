@@ -1,7 +1,7 @@
 // #@ String (visibility=MESSAGE, label="NoiSee  -", value="Fluorescein SNR analysis", persist=false) msg_title
-// @File(label="Dark image",description="dark field image") darkimage
-// @File(label="Fluorescein image",description="fluorescein image") fluoimage
-// @Boolean(label="Save results as PDF",description="generate a PDF with images and plots",value="true") save_pdf
+// @File(label="Dark image",description="dark field image (i.e. 'laser off')") darkimage
+// @File(label="Fluorescein image",description="image of a homogeneous fluorescent solution") fluoimage
+// @Boolean(label="Save results as PDF",description="generate a PDF with images and results",value="true") save_pdf
 // @Integer(label="Log level",description="higher number means more messages",min=0,max=2,style="scroll bar") LOGLEVEL
 // @Boolean(label="Save log messages",description="save contents of the 'Log' window in a text file",value="false") save_log
 // #@ String (visibility=MESSAGE, label="Note:", value="all currently open images will be closed", persist=false) msg_note_close
