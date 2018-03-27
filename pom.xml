@@ -23,7 +23,8 @@
 	</organization>
 	<licenses>
 		<license>
-			<name>GNU General Public License (GPL) v3</name>
+			<name>GNU General Public License (GPL) v3+</name>
+			<url>https://www.gnu.org/licenses/gpl.html</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
