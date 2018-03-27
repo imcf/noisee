@@ -1,4 +1,4 @@
-// @String(label="NoiSee - Beads SNR analysis", choices={"Note: all currently open images will be closed!"}, style="listBox", description="Hit 'Cancel' otherwise!") warn_msg
+// #@ String (visibility=MESSAGE, label="NoiSee  -", value="Beads SNR analysis", persist=false) msg_title
 // @File(label="Beads time-series image",description="2D time-lapse acquisition of fluorescent beads") beadsimage
 // @Integer(label="Beads diameter (in pixels)",description="approximate bead diameter (in pixels)",value=15) beads_diameter
 // @Integer(label="Find Maxima noise tolerance",description="typical values: [PMT=50] [HyD (photon counting)=10] [Camera=500]",value=50) beads_noisetolerance
@@ -8,6 +8,7 @@
 // @Boolean(label="Keep ROI images open",description="ROI visualizations will only be added to PDF otherwise",value="false") keep_roiimages
 // @Integer(label="Log level",description="higher number means more messages",min=0,max=2,style="scroll bar") LOGLEVEL
 // @Boolean(label="Save log messages",description="save contents of the 'Log' window in a text file",value="false") save_log
+// #@ String (visibility=MESSAGE, label="Note:", value="all currently open images will be closed", persist=false) msg_note_close
 
 
 //////////// NoiSee Beads Analysis ///////////////////////////////////////////////////////
