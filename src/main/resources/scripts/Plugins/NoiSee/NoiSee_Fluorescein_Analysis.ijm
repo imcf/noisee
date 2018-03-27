@@ -71,9 +71,10 @@ function makeHistogram(image_id, lut_name, logarithmic) {
     return getImageID();
 }
 
-function dressImage(image_id, lut_name, enhance) {
+function dressImage(image_id, lut_name, enhance, desc) {
     // applies a given LUT to an image, applies the "Enhance contrast" command to it if the
-    // "enhance" parameter is non-negative, adds a calibration bar (non-overlay)
+    // "enhance" parameter is non-negative, adds a calibration bar (non-overlay) and optionally
+    // adds a text description below the image
     // returns the ID of the new image, closing the old one
     selectImage(image_id);
     logi("dressImage(" + getTitle() + ", " + lut_name + ", " + enhance + ")");
@@ -94,6 +95,8 @@ function dressImage(image_id, lut_name, enhance) {
         "label=White number=5 decimal=0 font=12 zoom=3.3 bold");
     new_id = getImageID();
     rename(title);
+    if (desc != "")
+        addTextToImage(new_id,  false, "Center", 22, desc);
     closeImage(image_id);
     return new_id;
 }
@@ -312,6 +315,15 @@ function process_fluo() {
     ////////// ////////// ////////// ////////// ////////// ////////// ////////// //////////
 
 
+    ///////////  decorate images, add calibration bars //////////// ////////// ////////// //////////
+    rgb_hist = makeHistogram(img_sig, "physics", true);
+    addTextToImage(rgb_hist, false, "Center", 12, "Histogram of absolute signal.");
+    rgb_sig  = dressImage(img_sig,  "physics", 0.35, "Absolute signal (fluorescein - background).");
+    rgb_fluo = dressImage(img_fluo, "Glow",      -1, "Fluorescein image (original data).");
+    rgb_dark = dressImage(img_bg,   "Glow",      -1, "Dark image (original data).");
+    ////////// ////////// ////////// ////////// ////////// ////////// ////////// //////////
+
+
     ///////////  write summary of results and settings into a new table //////////// //////////
     title = "NoiSee Results Summary";
 
@@ -332,11 +344,6 @@ function process_fluo() {
     ////////// ////////// ////////// ////////// ////////// ////////// ////////// //////////
 
 
-    ///////////  decorate images, add calibration bars //////////// ////////// ////////// //////////
-    rgb_hist = makeHistogram(img_sig, "physics", true);
-    rgb_sig  = dressImage(img_sig,  "physics", 0.35);
-    rgb_fluo = dressImage(img_fluo, "Glow",      -1);
-    rgb_dark = dressImage(img_bg,   "Glow",      -1);
     ////////// ////////// ////////// ////////// ////////// ////////// ////////// //////////
 
 
