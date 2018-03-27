@@ -15,7 +15,7 @@
 
 	<name>NoiSee</name>
 	<description>An easy-to-use ImageJ macro for measuring SNR.</description>
-	<url>http://www.biozentrum.unibas.ch/noisee</url>
+	<url>https://imagej.net/NoiSee</url>
 	<inceptionYear>2018</inceptionYear>
 	<organization>
 		<name>University of Basel</name>
