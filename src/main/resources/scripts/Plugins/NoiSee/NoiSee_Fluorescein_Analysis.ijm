@@ -100,6 +100,35 @@ function dressImage(image_id, lut_name, enhance) {
     return new_id;
 }
 
+
+function addTextToImage(image_id, above, justify, font_size, text) {
+    selectImage(image_id);
+    logd("addTextToImage(" + getTitle() + ", ''" + text + "'')");
+    run("Select None");
+
+    curw = getWidth();
+    neww = curw;
+    curh = getHeight();
+    newh = curh + font_size + 2;
+    setFont("SansSerif", font_size);
+    textw = getStringWidth(text);
+    if (textw > curw)
+        neww = textw;
+
+    if (above == true) {
+        canvpos = "Bottom-" + justify;
+        textpos = font_size + 2;
+    } else {
+        canvpos = "Top-" + justify;
+        textpos = newh;
+    }
+
+    setForegroundColor(30, 30, 30);
+    setBackgroundColor(255, 255, 255);
+    run("Canvas Size...", "width=" + neww + " height=" + newh + " position=" + canvpos);
+    drawString(text, 0, textpos);
+}
+
 function arrangeImages(ids, y_coord) {
     // try to place the image windows given in the "ids" array horizontally on the screen,
     // arranging them in equal distance and adjusting the zoom level if necessary
