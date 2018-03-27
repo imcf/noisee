@@ -178,7 +178,7 @@ if (nImages > 0) {
 
 print("\\Clear");  // clear the Log window
 print("============================================");
-print("NoiSee is published in Ferrand, Schleicher & Biehlmaier et al. 2017");
+print("NoiSee is published in Ferrand, Schleicher & Biehlmaier et al. 2018");
 print("============================================");
 print("running on ImageJ version " + getVersion);
 
