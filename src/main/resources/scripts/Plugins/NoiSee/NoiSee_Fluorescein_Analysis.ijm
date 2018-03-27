@@ -3,6 +3,7 @@
 // @File(label="Fluorescein image",description="fluorescein image") fluoimage
 // @Boolean(label="Save results as PDF",description="generate a PDF with images and plots",value="true") save_pdf
 // @Integer(label="Log level",description="higher number means more messages",min=0,max=2,style="scroll bar") LOGLEVEL
+// @Boolean(label="Save log messages",description="save contents of the 'Log' window in a text file",value="false") save_log
 
 
 //////////// NoiSee Fluorescein Analysis ///////////////////////////////////////////////////////
@@ -269,6 +270,11 @@ function process_fluo() {
     ////////// arrange the windows and create a PDF of images and plots ////////// //////////
     rgb_sig = duplicateAndClose(rgb_sig);
     rgb_hist = duplicateAndClose(rgb_hist);
+    if (save_log) {
+        selectWindow("Log");
+        saveAs("Text", respath + "/Log.txt");
+    }
+
     setBatchMode("exit and display");   // exit batch mode and show images
     // wait(100);  // give the OS some time to display all image windows
 
