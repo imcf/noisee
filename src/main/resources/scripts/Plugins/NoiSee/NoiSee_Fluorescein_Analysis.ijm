@@ -100,6 +100,49 @@ function dressImage(image_id, lut_name, enhance) {
     return new_id;
 }
 
+function createTable(title, pairs, fname) {
+    // create a new 2-column table with the given title, using the key-value tuples from the array
+    // given in "pairs" to fill the cells, saving it as to the text file "fname"
+    titleb = "[" + title + "]";
+    if (isOpen(title))
+        print(titleb, "\\Clear");
+    else
+        run("Table...", "name=" + titleb + " width=320 height=340");
+
+    print(titleb, "\\Headings:Key\tValue");
+    for (i = 0; i < pairs.length; i = i + 2) {
+        print(titleb, pairs[i] + "\t" + pairs[i+1]);
+    }
+    selectWindow(title);
+    if (fname != "")
+        saveAs("Results", fname);
+}
+
+function createTableImage(title, pairs) {
+    // create an image with a 2-column table from the given array of pairs
+    // returns the ID of the new image
+    newImage("tmp_table_col1", "RGB white", 1, 1, 1);
+    img_col1 = getImageID();
+    newImage("tmp_table_col2", "RGB white", 1, 1, 1);
+    img_col2 = getImageID();
+
+    for (i = 0; i < pairs.length; i = i + 2) {
+        addTextToImage(img_col1, false, "Left", 28, pairs[i]);
+        addTextToImage(img_col2, false, "Left", 28, pairs[i+1]);
+    }
+    selectImage(img_col2);
+    col2h = getHeight();
+    col2w = getWidth() + 28;
+    run("Canvas Size...", "width=" + col2w + " height=" + col2h + " position=Top-Right");
+    run("Combine...", "stack1=tmp_table_col1 stack2=tmp_table_col2");
+    img_table = getImageID();
+    rename(title);
+
+    addTextToImage(img_table, true, "Center", 18, "");
+    addTextToImage(img_table, true, "Center", 36, title);
+
+    return img_table;
+}
 
 function addTextToImage(image_id, above, justify, font_size, text) {
     selectImage(image_id);
