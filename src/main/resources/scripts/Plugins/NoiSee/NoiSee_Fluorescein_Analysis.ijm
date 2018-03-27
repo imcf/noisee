@@ -290,9 +290,7 @@ function process_fluo() {
         run("PDF ... ", "show show scale save one save=[" + fname_pdf + "]");
     }
 
-    image_ids = newArray(rgb_sig, rgb_fluo);
-    arrangeImages(image_ids, screenHeight * 0.1);
-    image_ids = newArray(rgb_dark, rgb_hist);
-    arrangeImages(image_ids, screenHeight * 0.55);
+    image_ids = newArray(rgb_sig, rgb_fluo, rgb_dark, rgb_hist);
+    arrangeImages(image_ids, screenHeight * 0.2);
     ////////// ////////// ////////// ////////// ////////// ////////// ////////// //////////
 }
