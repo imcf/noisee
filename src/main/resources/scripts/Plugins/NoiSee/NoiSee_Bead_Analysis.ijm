@@ -760,7 +760,7 @@ function process_beads() {
     col_mean = "Mean(bead_intensity_vs_time)";
     plot_mean = plotResult("Mean bead intensity over time", "Frame", "bead intensity mean", col_mean);
     addTextToImage(plot_mean, false, "Center", 22,
-        "A linear decay would be an indicator for a z-drift, an exponential decay for bleaching.");
+        "A linear decay is an indicator for a z-drift, an exponential decay for bleaching.");
     addTextToImage(plot_mean, false, "Center", 96, "");
 
     // linear increase = xy-drift
@@ -770,7 +770,7 @@ function process_beads() {
     plot_std = plotResult("Standard deviation of bead intensity over time", "Frame",
         "bead intensity StdDev", col_std);
     addTextToImage(plot_std, false, "Center", 22,
-        "Increase in the StdDev indicates a drift in X/Y.");
+        "Evolution of noise over time.");
 
     run("Combine...", "stack1=[plot of " + col_mean + "] stack2=[plot of " + col_std + "] combine");
     rename("Plots of intensity vs. time");
