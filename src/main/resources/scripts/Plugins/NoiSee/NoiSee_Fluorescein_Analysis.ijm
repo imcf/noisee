@@ -12,8 +12,6 @@
 
 
 /// TODOs:
-//  - create a summary image with results to be included in PDF
-
 
 /// Naming conventions
 //  - "img_"  - image IDs of 2D images
@@ -316,23 +314,21 @@ function process_fluo() {
 
     ///////////  write summary of results and settings into a new table //////////// //////////
     title = "NoiSee Results Summary";
-    titleb = "[" + title + "]";
-    if (isOpen(title))
-        print(titleb, "\\Clear");
-    else
-        run("Table...", "name=" + titleb + " width=320 height=340");
-    print(titleb, "\\Headings:Label\tValue");
-    print(titleb, "Signal mean\t" + mean_sig);
-    print(titleb, "Signal StdDev (noise)\t" + std_sig);
-    print(titleb, "SNR\t" + snr);
-    print(titleb, "Background mean\t" + mean_bg);
-    print(titleb, "SBR\t" + sbr);
-    print(titleb, "Background StdDev\t" + std_bg);
-    print(titleb, "\t");
-    print(titleb, "dark image\t" + bg_fname);
-    print(titleb, "fluorescein image\t" + fluo_fname);
-    selectWindow(title);
-    saveAs("Results", respath + "/" + "NoiSee-summary.txt");
+
+    pairs = newArray();
+    pairs = Array.concat(pairs, "Signal mean", mean_sig);
+    pairs = Array.concat(pairs, "Signal StdDev (noise)", std_sig);
+    pairs = Array.concat(pairs, "SNR", snr);
+    pairs = Array.concat(pairs, "Background mean", mean_bg);
+    pairs = Array.concat(pairs, "SBR", sbr);
+    pairs = Array.concat(pairs, "Background StdDev", std_bg);
+    pairs = Array.concat(pairs, "", "");
+    pairs = Array.concat(pairs, "-- Input --", "");
+    pairs = Array.concat(pairs, "dark image", bg_fname);
+    pairs = Array.concat(pairs, "fluorescein image", fluo_fname);
+
+    createTable(title, pairs, respath + "/" + "NoiSee-summary.txt");
+    img_summary = createTableImage(title, pairs);
     ////////// ////////// ////////// ////////// ////////// ////////// ////////// //////////
 
 
@@ -361,6 +357,7 @@ function process_fluo() {
         print("Creating PDF from images: " + fname_pdf);
         run("PDF ... ", "show show scale save one save=[" + fname_pdf + "]");
     }
+    closeImage(img_summary);
 
     image_ids = newArray(rgb_sig, rgb_fluo, rgb_dark, rgb_hist);
     arrangeImages(image_ids, screenHeight * 0.2);
