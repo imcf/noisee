@@ -135,6 +135,11 @@ function arrangeImages(ids, y_coord) {
         x_coord = width * i + spacing * (i+1);
         logd("placing image at " + x_coord + " / " + y_coord);
         setLocation(x_coord, y_coord, width, height);
+        getLocationAndSize(_, _, window_width, window_height);
+        if (window_width != width) {
+            delta = (width - window_width) / 2;
+            setLocation(x_coord + delta, y_coord, width, height);
+        }
     }
 }
 
