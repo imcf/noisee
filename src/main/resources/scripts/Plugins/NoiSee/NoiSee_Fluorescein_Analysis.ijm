@@ -344,12 +344,22 @@ function process_fluo() {
     ////////// ////////// ////////// ////////// ////////// ////////// ////////// //////////
 
 
+    ////////// adjust order of the images and create a PDF ////////// ////////// //////////
+
+    // the PDF exporter of ImageJ simply concatenates all open images in ascending order,
+    // starting with the oldest one first, therefore we need to duplicate all images into
+    // new ones (closing the old ones) in the order which is desired in the resulting PDF:
+    rgb_fluo = duplicateAndClose(rgb_fluo);
+    rgb_dark = duplicateAndClose(rgb_dark);
+    rgb_sig  = duplicateAndClose(rgb_sig);
+    rgb_hist = duplicateAndClose(rgb_hist);
+
+    img_summary = duplicateAndClose(img_summary);
+
     ////////// ////////// ////////// ////////// ////////// ////////// ////////// //////////
 
 
-    ////////// arrange the windows and create a PDF of images and plots ////////// //////////
-    rgb_sig = duplicateAndClose(rgb_sig);
-    rgb_hist = duplicateAndClose(rgb_hist);
+    ////////// save the log, create PDF and arrange the windows on the screen ////////// //////////
     if (save_log) {
         selectWindow("Log");
         saveAs("Text", respath + "/Log.txt");
