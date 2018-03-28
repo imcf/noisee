@@ -1,12 +1,3 @@
-// #@ String (visibility=MESSAGE, label="NoiSee  -", value="Fluorescein SNR analysis", persist=false) msg_title
-// @File(label="Dark image",description="dark field image (i.e. 'laser off')") darkimage
-// @File(label="Fluorescein image",description="image of a homogeneous fluorescent solution") fluoimage
-// @Boolean(label="Save results as PDF",description="generate a PDF with images and results",value="true") save_pdf
-// @Integer(label="Log level",description="higher number means more messages",min=0,max=2,style="scroll bar") LOGLEVEL
-// @Boolean(label="Save log messages",description="save contents of the 'Log' window in a text file",value="false") save_log
-// #@ String (visibility=MESSAGE, label="Note:", value="all currently open images will be closed", persist=false) msg_note_close
-
-
 //////////// NoiSee Fluorescein Analysis ///////////////////////////////////////////////////////
 // SNR evaluation macro, written by Kai Schleicher, Niko Ehrenfeuchter, IMCF Basel
 // licence: GPLv3
@@ -17,6 +8,21 @@
 /// Naming conventions
 //  - "img_"  - image IDs of 2D images
 //  - "rgb_"  - image IDs of 2D RGB images
+
+
+//////// Script Parameters, see https://imagej.net/Script_Parameters for details
+#@ String (visibility=MESSAGE, label="NoiSee  -", value="Fluorescein SNR analysis", persist=false) msg_title
+#@ File(label="Dark image",description="dark field image (i.e. 'laser off')") darkimage
+#@ File(label="Fluorescein image",description="image of a homogeneous fluorescent solution") fluoimage
+#@ Boolean(label="Save results as PDF",description="generate a PDF with images and results",value="true") save_pdf
+#@ String (visibility=MESSAGE, label="Note:", value="all currently open images will be closed", persist=false) msg_note_close
+
+
+// valid log levels: 0 (quiet), 1 (info messages), 2 (debug messages)
+LOGLEVEL=0;
+
+// save contents of the 'Log' window in a text file:
+save_log=false;
 
 
 ////////////////// function definitions ///////////////////////////////
