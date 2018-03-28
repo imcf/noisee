@@ -1,9 +1,11 @@
 //////////// NoiSee Fluorescein Analysis ///////////////////////////////////////////////////////
-// SNR evaluation macro, written by Kai Schleicher, Niko Ehrenfeuchter, IMCF Basel
+// Signal-to-Noise-Ratio evaluation macro
+// written by Kai Schleicher, Niko Ehrenfeuchter, IMCF Basel
 // licence: GPLv3
 
 
 /// TODOs:
+//  - test images with other dynamic ranges (16 bit)
 
 /// Naming conventions
 //  - "img_"  - image IDs of 2D images

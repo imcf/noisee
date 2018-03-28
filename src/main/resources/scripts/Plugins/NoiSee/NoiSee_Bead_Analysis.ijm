@@ -1,5 +1,6 @@
 //////////// NoiSee Beads Analysis ///////////////////////////////////////////////////////
-// SNR evaluation macro, written by Kai Schleicher, Niko Ehrenfeuchter, IMCF Basel
+// Signal-to-Noise-Ratio evaluation macro
+// written by Kai Schleicher, Niko Ehrenfeuchter, IMCF Basel
 // licence: GPLv3
 
 
