@@ -11,7 +11,7 @@
 
 	<groupId>ch.unibas.biozentrum.imcf</groupId>
 	<artifactId>NoiSee</artifactId>
-	<version>0.1.3-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<name>NoiSee</name>
 	<description>An easy-to-use ImageJ macro for measuring SNR.</description>
@@ -71,7 +71,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/imcf/noisee</connection>
 		<developerConnection>scm:git:git@github.com:imcf/noisee</developerConnection>
-		<tag>HEAD</tag>
+		<tag>NoiSee-1.0.0</tag>
 		<url>https://github.com/imcf/noisee</url>
 	</scm>
 	<issueManagement>
