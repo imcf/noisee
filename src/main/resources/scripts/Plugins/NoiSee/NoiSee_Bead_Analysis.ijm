@@ -746,8 +746,8 @@ function process_beads() {
 
     ///////////  decorate images, add calibration bars //////////// ////////// ////////// //////////
     rgb_t0  = dressImage(imgs_orig, "Glow",      -1, "First timepoint (T0) of the original data.");
-    rgb_avg = dressImage(img_avg,   "Fire",      -1, "Average projection of the original data.");
-    rgb_std = dressImage(img_std,   "Fire",      -1, "StdDev projection of the original data.");
+    rgb_avg = dressImage(img_avg,   "Fire",      -1, "Average projection of the background-subtracted data.");
+    rgb_std = dressImage(img_std,   "Fire",      -1, "StdDev projection of the background-subtracted data.");
     rgb_snr = dressImage(img_snr,   "physics", 0.35, "Signal-To-Noise ratio for all pixels.");
 
     // adjust name for original image (now showing the first time point):
