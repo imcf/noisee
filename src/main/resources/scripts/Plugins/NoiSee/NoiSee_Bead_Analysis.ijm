@@ -537,7 +537,7 @@ function process_beads() {
     fpath = File.getParent(beadsimage);      // path only
     fname = File.getName(beadsimage);        // filename only
     fname_nosuffix = stripOmeSuffix(File.nameWithoutExtension);  // filename without extension
-    respath = fpath + "/" + fname_nosuffix + "_NoiSee-results";  // path for additional results
+    respath = fpath + "/" + fname_nosuffix + "_NoiSee-Bead-Analysis";  // path for additional results
     File.makeDirectory(respath);
     // TODO: check if image dimensions meet our expectations (z=1, t>1)
 

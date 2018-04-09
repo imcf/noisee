@@ -294,7 +294,7 @@ function process_fluo() {
     fluo_fname_nosuffix = stripOmeSuffix(File.nameWithoutExtension);  // filename without extension    
 
     fpath = File.getParent(fluoimage);           // path only
-    respath = fpath + "/" + fluo_fname_nosuffix + "_NoiSee-results";  // path for additional results
+    respath = fpath + "/" + fluo_fname_nosuffix + "_NoiSee-Fluorescein-Analysis";  // path for additional results
     File.makeDirectory(respath);
 
     print("processing images in location: [" + fpath + "]");
