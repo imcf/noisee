@@ -32,7 +32,7 @@
 	<developers>
 		<!-- See https://imagej.net/Team -->
 		<developer>
-			<id>ehrenfeu</id>
+			<id>Ehrenfeu</id>
 			<name>Niko Ehrenfeuchter</name>
 			<url>https://imagej.net/User:Ehrenfeu</url>
 			<roles>
@@ -46,7 +46,7 @@
 			</roles>
 		</developer>
 		<developer>
-			<id>schlda00</id>
+			<id>Cellkai</id>
 			<name>Kai Schleicher</name>
 			<roles>
 				<role>founder</role>
