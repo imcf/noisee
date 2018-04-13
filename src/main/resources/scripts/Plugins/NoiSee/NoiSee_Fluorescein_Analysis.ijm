@@ -1,5 +1,5 @@
 //////////// NoiSee Fluorescein Analysis ///////////////////////////////////////////////////////
-// Signal-to-Noise-Ratio evaluation macro
+// Signal-to-Noise-Ratio evaluation suite
 // written by Kai Schleicher, Niko Ehrenfeuchter, IMCF Basel
 // licence: GPLv3
 
