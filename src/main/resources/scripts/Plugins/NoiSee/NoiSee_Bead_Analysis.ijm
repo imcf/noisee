@@ -549,7 +549,14 @@ function process_beads() {
     print("processing image: " + fname + "  (location: [" + fpath + "])");
     if (bitDepth() > 8) {
         print("image type " +  bitDepth() + " bit detected, converting to 8 bit...");
-        resetMinAndMax();
+        Stack.getStatistics(_, _, stack_min, stack_max, _);
+        new_max = stack_max * 1.1;
+        // NOTE: having a new value larger than the max value of the current bit
+        // depth is unproblematic since ImageJ apparently just uses the maximum
+        // possible value then:
+        print("setting display range min/max to 0/" + new_max + " (was: " +
+            stack_min + "/" + stack_max + ")");
+        setMinAndMax(0, new_max);
         run("8-bit");
     }
 
