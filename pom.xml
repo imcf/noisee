@@ -11,7 +11,7 @@
 
 	<groupId>ch.unibas.biozentrum.imcf</groupId>
 	<artifactId>NoiSee</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.1.1-SNAPSHOT</version>
 
 	<name>NoiSee</name>
 	<description>An easy-to-use ImageJ macro for measuring SNR.</description>
