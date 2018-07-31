@@ -541,6 +541,11 @@ function process_beads() {
     File.makeDirectory(respath);
     // TODO: check if image dimensions meet our expectations (z=1, t>1)
 
+    if (bitDepth() == 32) {
+        print("Floating point images are not supported!");
+        exit_show();
+    }
+
     print("processing image: " + fname + "  (location: [" + fpath + "])");
     if (bitDepth() > 8) {
         print("image type " +  bitDepth() + " bit detected, converting to 8 bit...");
