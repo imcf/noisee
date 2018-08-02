@@ -5,7 +5,6 @@
 
 
 /// TODOs:
-//  - test images with other dynamic ranges (16 bit)
 //  - consider using lacan's LibInstaller: https://github.com/lacan/LibInstaller
 
 /// Naming conventions
