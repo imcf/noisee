@@ -538,6 +538,7 @@ function process_beads() {
     fname_nosuffix = stripOmeSuffix(File.nameWithoutExtension);  // filename without extension
     respath = fpath + "/" + fname_nosuffix + "_NoiSee-Bead-Analysis";  // path for additional results
     File.makeDirectory(respath);
+    print("processing image: " + fname + "  (location: [" + fpath + "])");
 
     // check if image dimensions meet our expectations (z=1, t>1)
     getDimensions(_, _, _, slices, frames);
@@ -554,7 +555,6 @@ function process_beads() {
         exit_show();
     }
 
-    print("processing image: " + fname + "  (location: [" + fpath + "])");
     if (bitDepth() > 8) {
         print("image type " +  bitDepth() + " bit detected, converting to 8 bit...");
         Stack.getStatistics(_, _, stack_min, stack_max, _);
