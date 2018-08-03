@@ -476,6 +476,62 @@ function stripOmeSuffix(orig) {
     return orig;
 }
 
+function clear_workspace() {
+    /*
+     * Ensure a clean workspace, i.e.
+     *   - no open image windows
+     *   - an empty Log window
+     *   - no ROIs
+     *   - no results
+     */
+
+    // clear the Log window
+    print("\\Clear");
+
+    // close all open images
+    if (nImages > 0) {
+        run("Close All");
+    }
+
+    // make sure the ROI manager is empty
+    roiManager("reset");
+
+    // empty the results table
+    run("Clear Results");
+}
+
+function reset_ij_options() {
+    /*
+     * Make sure to set all relevant ImageJ options to a useful state for being
+     * able to provide consistent results independent of what has been
+     * configured or done by the user before.
+     *
+     * IMPORTANT: the order of the commands is highly relevant, on changes
+     *            careful tests need to be done to ensure correct behavior.
+     */
+
+    // disable inverting LUT
+    run("Appearance...", "  menu=0 16-bit=Automatic");
+
+    // set foreground color to be white, background black
+    run("Colors...", "foreground=white background=black selection=red");
+
+    // pad edges when eroding a binary image
+    run("Options...", "pad");
+
+    // set saving format to .txt files
+    run("Input/Output...", "file=.txt");
+
+
+    // ============= WARNING WARNING WARNING =============//
+    // the commands below this marker *MUST NOT* be moved
+    // upwards as they seem to be overridden by some of the
+    // "run(...)" calls otherwise, turning them useless!
+
+    // set "Black Background" in "Binary Options"
+    setOption("black background", true);
+}
+
 function exit_show() {
     setBatchMode("exit and display");
     exit();
@@ -501,27 +557,20 @@ function logd(message) {
 
 //////////////// set the user environment /////////////////////////////////////////////////////
 
-// results will potentially be screwed up if other images are open, so close all:
-if (nImages > 0) {
-    run("Close All");
-}
+clear_workspace();
+reset_ij_options();
 
-print("\\Clear");  // clear the Log window
 print("============================================");
 print("NoiSee is published in Ferrand, Schleicher & Biehlmaier et al. 2018");
 print("============================================");
 print("running on ImageJ version " + getVersion);
 
-run("Options...", "pad");  // pad edges when eroding
-setOption("black background", true);  // set "Black Background" in "Binary Options"
-roiManager("reset");   // results are only correct if no previous ROI exists
-run("Clear Results");  // empty the results table
-run("Appearance...", "  menu=0 16-bit=Automatic");  // disable inverting LUT
-run("Colors...", "foreground=white background=black selection=red");
-run("Input/Output...", "file=.txt");  // set saving format to .txt files
-
 
 process_beads();
+
+
+
+
 
 
 //////////////// bead method //////////////////////////////////////////////////////////////////
