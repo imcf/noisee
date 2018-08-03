@@ -482,8 +482,8 @@ function exit_show() {
 }
 
 function log_formatter(message) {
-    print('image "' + getTitle() + "'' [type=" + bitDepth() + "] [id=" + getImageID() + "]: " +
-        message);
+    print('image "' + getTitle() + "'' [type=" + bitDepth() + "] [id=" +
+        getImageID() + "]: " + message);
 }
 
 function logi(message) {
