@@ -548,8 +548,9 @@ function process_beads() {
         exit_show();
     }
 
-    if (bitDepth() == 32) {
-        print("Floating point images are not supported!");
+    // neither floating point nor RGB images make sense for this, so check:
+    if (bitDepth() != 8 && bitDepth() != 16) {
+        print("Only images with a bit depth of 8 or 16 are supported!");
         exit_show();
     }
 
