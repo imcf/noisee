@@ -555,8 +555,8 @@ function process_beads() {
         exit_show();
     }
 
-    if (bitDepth() > 8) {
-        print("image type " +  bitDepth() + " bit detected, converting to 8 bit...");
+    if (bitDepth() == 16) {
+        print("16 bit image type detected, converting to 8 bit...");
         Stack.getStatistics(_, _, stack_min, stack_max, _);
         new_max = stack_max * 1.1;
         // NOTE: having a new value larger than the max value of the current bit
