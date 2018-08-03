@@ -538,7 +538,15 @@ function process_beads() {
     fname_nosuffix = stripOmeSuffix(File.nameWithoutExtension);  // filename without extension
     respath = fpath + "/" + fname_nosuffix + "_NoiSee-Bead-Analysis";  // path for additional results
     File.makeDirectory(respath);
-    // TODO: check if image dimensions meet our expectations (z=1, t>1)
+
+    // check if image dimensions meet our expectations (z=1, t>1)
+    getDimensions(_, _, _, slices, frames);
+    if (slices > 1 || frames == 1) {
+        print("Input data needs to be a time-lapse with a single slice only!");
+        print("Found " + slices + " slices, expected 1!");
+        print("Found " + frames + " frames, expected > 1!");
+        exit_show();
+    }
 
     if (bitDepth() == 32) {
         print("Floating point images are not supported!");
