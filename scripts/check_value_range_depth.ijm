@@ -5,9 +5,6 @@
 possible_depths = Array.getSequence(17);
 possible_depths = Array.slice(possible_depths, 8, 17);
 
-// code below expects array to be sorted, so make sure this is true:
-Array.sort(possible_depths);
-
 getStatistics(_, _, _, max, _, _);
 print("maximum value in image: " + max);
 
