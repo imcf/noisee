@@ -1,8 +1,9 @@
 // macro code to check a 16-bit image for its actual value range bit depth and
 // to test for saturation within that range
 
-// define the value range bit depths to test for:
-possible_depths = newArray(8, 10, 11, 12, 14, 16);
+// define the value range bit depths to test for (8 to 16):
+possible_depths = Array.getSequence(17);
+possible_depths = Array.slice(possible_depths, 8, 17);
 
 // code below expects array to be sorted, so make sure this is true:
 Array.sort(possible_depths);
