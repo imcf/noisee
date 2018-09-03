@@ -14,8 +14,8 @@ saturated = false;
 actual_depth = 16;
 // traverse the possible depths array backwards:
 for (i = lengthOf(possible_depths) - 1; i > 0; i--) {
-	print("checking bit-depth " + possible_depths[i]);
 	sat = pow(2, possible_depths[i]) - 1;
+	print("checking for " + possible_depths[i] + " bit value range (0-" + sat + ")");
 	
 	if (max == sat) {
 		saturated = true;
@@ -23,7 +23,7 @@ for (i = lengthOf(possible_depths) - 1; i > 0; i--) {
 		print("saturated " + actual_depth + "-bit image detected!");
 	} else {
 		next_lower = pow(2, possible_depths[i-1]);
-		print("checking against next lower range limit: " + next_lower);
+		// print("checking against next lower range limit: " + next_lower);
 		if (max < sat && max >= next_lower) {
 			actual_depth = possible_depths[i];
 			print("non-saturated " + actual_depth + "-bit image detected!");
