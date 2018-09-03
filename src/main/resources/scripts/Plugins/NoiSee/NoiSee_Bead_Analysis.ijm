@@ -476,6 +476,66 @@ function stripOmeSuffix(orig) {
     return orig;
 }
 
+function detectValueRange() {
+    // detect the *actual* value range bit depth of a 16-bit image, i.e. if the
+    // image contains pixels in a range from 5 to 3978 the value range depth is
+    // 12 bits (possible values from 0 to 4095)
+
+    // define the value range bit depths to test for (8 to 16):
+    possible_depths = Array.getSequence(17);
+    possible_depths = Array.slice(possible_depths, 8, 17);
+
+    Stack.getStatistics(_, _, _, max, _, _);
+    logi("maximum pixel value in stack: " + max);
+
+    saturated = false;
+    actual_depth = 16;
+    // traverse the possible depths array backwards:
+    for (i = lengthOf(possible_depths) - 1; i > 0; i--) {
+        sat = pow(2, possible_depths[i]) - 1;
+        logd("checking " + possible_depths[i] + " bit range (0-" + sat + ")");
+
+        if (max == sat) {
+            saturated = true;
+            actual_depth = possible_depths[i];
+            logd("saturated " + actual_depth + "-bit image detected!");
+        } else {
+            next_lower = pow(2, possible_depths[i-1]);
+            if (max < sat && max >= next_lower) {
+                actual_depth = possible_depths[i];
+                logd("non-saturated " + actual_depth + "-bit image detected!");
+            }
+        }
+    }
+
+    msg_sat = "(not saturated)";
+    if (saturated)
+        msg_sat = "(SATURATED!)";
+    logd("\ndetected value range: " + actual_depth + " bit " + msg_sat);
+
+    res = newArray(actual_depth, saturated);
+    return res;
+}
+
+function mapTo8bitPreservingSaturation(effectiveBits) {
+    // convert an image with 12 or 16 bit effective value range depth to 8 bit
+    // preserving saturation in the sense that only saturated pixels (65535 for
+    // 16 bits and 4095 for 12 bits) are mapped to the 8 bit saturation value
+    // (255), avoiding the usual binning that would happen if simply the display
+    // range was adjusted to the min/max values of the image (resulting in
+    // over-saturation of wrongly mapped pixels)
+    if (effectiveBits == 16) {
+        run("Divide...", "value=257.50 stack");
+    } else if (effectiveBits == 12) {
+        run("Divide...", "value=16.09 stack");
+    } else {
+        print("Invalid VALUE range detected: " + effectiveBits);
+        print("Input image needs to have a value range of 8, 12 or 16 bits!");
+        exit_show();
+    }
+    run("8-bit");
+}
+
 function clear_workspace() {
     /*
      * Ensure a clean workspace, i.e.
