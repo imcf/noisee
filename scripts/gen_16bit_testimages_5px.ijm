@@ -4,7 +4,12 @@
 
 #@ File(label="Output directory",style="directory") gen_images_output_dir
 
-bit_depths = newArray(8, 9, 10, 11, 12, 13, 14, 15, 16);
+setBatchMode(true);
+
+// create an array with values from 8 to 16 (including)
+bit_depths = Array.getSequence(17);
+bit_depths = Array.slice(bit_depths, 8, 17);
+
 
 for (i = 0; i < lengthOf(bit_depths); i++) {
     title = "" + bit_depths[i] + " bit 5px test image";
