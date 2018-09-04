@@ -529,7 +529,7 @@ function mapTo8bitPreservingSaturation(effectiveBits) {
     } else if (effectiveBits == 12) {
         run("Divide...", "value=16.09 stack");
     } else {
-        print("Invalid VALUE range detected: " + effectiveBits);
+        print("Unsupported VALUE range detected: " + effectiveBits + " bits");
         print("Input image needs to have a value range of 8, 12 or 16 bits!");
         exit_show();
     }
