@@ -57,7 +57,23 @@
 	</developers>
 	<contributors>
 		<contributor>
-			<name>None</name>
+			<name>Alexia Loynton-Ferrand</name>
+			<roles>
+				<role>founder</role>
+				<role>support</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<name>Oliver Biehlmaier</name>
+			<roles>
+				<role>support</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<name>Wolf Heusermann</name>
+			<roles>
+				<role>support</role>
+			</roles>
 		</contributor>
 	</contributors>
 
