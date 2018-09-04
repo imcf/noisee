@@ -15,6 +15,7 @@
 
 
 //////// Script Parameters, see https://imagej.net/Script_Parameters for details
+#@ String (label="<html><img src=\"https://drive.switch.ch/index.php/s/zyKSwuCMKMs6ZQ1/download\"></html>",value="<html><img src=\"https://drive.switch.ch/index.php/s/54H9s84wYou3uBd/download\"></html>",visibility=MESSAGE,persist=false) msg_logo
 #@ String(visibility=MESSAGE, label="NoiSee  -",value="Beads SNR analysis",persist=false) msg_title
 #@ File(label="Beads time-series image",description="2D time-lapse acquisition of fluorescent beads") beadsimage
 #@ Integer(label="Beads diameter (in pixels)",description="approximate bead diameter (in pixels)",value=15) beads_diameter
