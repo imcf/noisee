@@ -1,4 +1,4 @@
-# NoiSee
+# ![NoiSee logo][img_noisee_logo] NoiSee
 
 NoiSee is an easy-to-use ImageJ macro for measuring and evaluating SNR
 (signal-to-noise ratio) of light microscopes.
@@ -22,5 +22,7 @@ research please be so kind to cite our work:
 Oliver Biehlmaier*, **Signal-to-Noise ratio made easy: A tool to assess your
 confocal performance**, [bioRxiv 291500][doi].
 
+
 [ijnet_noisee]: https://imagej.net/NoiSee
+[img_noisee_logo]: https://imagej.net/_images/f/f2/Noisee-logo.png
 [doi]: https://doi.org/10.1101/291500
