@@ -538,6 +538,7 @@ function mapTo8bitPreservingSaturation(effectiveBits) {
     msg = msg + " (dividing pixel values by " + divisor + ")";
     logd(msg);
     run("Divide...", "value=" + divisor + " stack");
+    setMinAndMax(0, 255);
     run("8-bit");
 }
 
