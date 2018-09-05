@@ -526,14 +526,18 @@ function mapTo8bitPreservingSaturation(effectiveBits) {
     // range was adjusted to the min/max values of the image (resulting in
     // over-saturation of wrongly mapped pixels)
     if (effectiveBits == 16) {
-        run("Divide...", "value=257.50 stack");
+        divisor = 257.50;
     } else if (effectiveBits == 12) {
-        run("Divide...", "value=16.09 stack");
+        divisor = 16.09;
     } else {
         print("Unsupported VALUE range detected: " + effectiveBits + " bits");
         print("Input image needs to have a value range of 8, 12 or 16 bits!");
         exit_show();
     }
+    msg = "mapping " + effectiveBits + " bit value range to 8 bit";
+    msg = msg + " (dividing pixel values by " + divisor + ")";
+    logd(msg);
+    run("Divide...", "value=" + divisor + " stack");
     run("8-bit");
 }
 
