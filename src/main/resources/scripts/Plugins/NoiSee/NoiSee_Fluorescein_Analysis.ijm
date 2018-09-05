@@ -13,7 +13,8 @@
 
 
 //////// Script Parameters, see https://imagej.net/Script_Parameters for details
-#@ String (visibility=MESSAGE, label="NoiSee  -", value="Fluorescein SNR analysis", persist=false) msg_title
+#@ String(label="<html><img src=\"https://drive.switch.ch/index.php/s/zyKSwuCMKMs6ZQ1/download\"></html>",value="<html><img src=\"https://drive.switch.ch/index.php/s/1WfvtK2kbEuN1gY/download\"></html>",visibility=MESSAGE,persist=false) msg_logo
+#@ String(visibility=MESSAGE, label="NoiSee  -", value="Fluorescein SNR analysis", persist=false) msg_title
 #@ File(label="Dark image",description="dark field image (i.e. 'laser off')") darkimage
 #@ File(label="Fluorescein image",description="image of a homogeneous fluorescent solution") fluoimage
 #@ Boolean(label="Save results as PDF",description="generate a PDF with images and results",value="true") save_pdf
